@@ -38,3 +38,9 @@ Route::post('/prodi/add_action', [ProdiController::class, 'add_action'])
 
 Route::get('/mahasiswa', [MahasiswaController::class, 'list'])
 ->name('mahasiswa_list');
+
+Route::get('/mahasiswa/add', [MahasiswaController::class, 'add'])
+->name('mahasiswa_add');
+
+Route::post('/mahasiswa/add', [MahasiswaController::class, 'add_action'])
+->name('mahasiswa_add_action');

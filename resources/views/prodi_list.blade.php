@@ -6,29 +6,33 @@
     <title>Daftar Prodi</title>
 </head>
 <body>
-
-    <a href="{{ route('prodi_add') }}">Tambah</a>
-
-    <h1>Daftar Prodi Mahasiswa</h1>
-    <table border="1" cellpadding="10" cellspacing="0">
-        <tr>
-            <th>ID</th>
-            <th>Kode Prodi</th>
-            <th>Nama Prodi</th>
-            <th>Nama Kaprodi</th>
-            <th>Aksi</th>
-        </tr>
-        @foreach($prodis as $prodi)
-        <tr>
-            <td>{{ $prodi->id }}</td>
-            <td>{{ $prodi->kode_prodi }}</td>
-            <td>{{ $prodi->nama_prodi }}</td>
-            <td>{{ $prodi->nama_kaprodi }}</td>
-            <td>
-                <a href="#">Edit</a> | <a href="#">Hapus</a>
-            </td>
-        </tr>
-        @endforeach
-    </table>
+     @vite(['resources/css/app.css', 'resources/js/app.js'])
+        <div class="table-wrapper">
+        <div class="table-header">
+        <a href="{{ route('prodi_add') }}" class="btn-tambah">+ Tambah Prodi</a>
+        <h1>Daftar Prodi Mahasiswa</h1>
+        </div>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Kode Prodi</th>
+                <th>Nama Prodi</th>
+                <th>Nama Kaprodi</th>
+                <th>Aksi</th>
+            </tr>
+            @foreach($prodis as $prodi)
+            <tr>
+                <td>{{ $prodi->id }}</td>
+                <td>{{ $prodi->kode_prodi }}</td>
+                <td>{{ $prodi->nama_prodi }}</td>
+                <td>{{ $prodi->nama_kaprodi }}</td>
+                <td class="action-links">
+                    <a href="#">Edit</a> | 
+                    <a href="#">Hapus</a>
+                </td>
+            </tr>
+            @endforeach
+        </table>
+    </div>
 </body>
 </html>
