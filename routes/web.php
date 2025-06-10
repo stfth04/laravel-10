@@ -36,6 +36,15 @@ Route::get('/prodi/add', [ProdiController::class , 'add'])
 Route::post('/prodi/add_action', [ProdiController::class , 'add_action'])
     ->name('prodi_add_action');
 
+Route::get('/prodi/edit/{prodi}', [ProdiController::class , 'edit'])
+    ->name('prodi_edit');
+
+Route::patch('/prodi/edit_action/{prodi}', [ProdiController::class , 'edit_action'])
+    ->name('prodi_edit_action');
+
+Route::delete('/prodi/delete/{prodi}', [ProdiController::class , 'delete'])
+    ->name('prodi_delete');
+
 Route::get('/mahasiswa', [MahasiswaController::class , 'List'])
     ->name('mahasiswa_list');
 

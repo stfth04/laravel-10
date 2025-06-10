@@ -36,7 +36,7 @@
                             <input type="submit" value="Hapus">
                         </form>
                     </td>
-                
+
             </tr>
             @endforeach
         </table>

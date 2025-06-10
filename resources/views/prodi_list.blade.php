@@ -6,12 +6,7 @@
     <title>Daftar Prodi</title>
 </head>
 <body>
-     @vite(['resources/css/app.css', 'resources/js/app.js'])
-        <div class="table-wrapper">
-        <div class="table-header">
-        <a href="{{ route('prodi_add') }}" class="btn-tambah">+ Tambah Prodi</a>
-        <h1>Daftar Prodi Mahasiswa</h1>
-        </div>
+        <a href="{{ route('prodi_add') }}">Tambah Prodi</a>
         <table>
             <tr>
                 <th>ID</th>
@@ -26,13 +21,20 @@
                 <td>{{ $prodi->kode_prodi }}</td>
                 <td>{{ $prodi->nama_prodi }}</td>
                 <td>{{ $prodi->nama_kaprodi }}</td>
-                <td class="action-links">
-                    <a href="#">Edit</a> | 
-                    <a href="#">Hapus</a>
-                </td>
+                <td>
+                     <form action="{{ route('prodi_edit', $prodi) }}" method="get">
+                        @csrf
+                            <input type="submit" value="Edit">
+                        </form>
+
+                        <form action="{{ route('prodi_delete', $prodi) }}" method="post">
+                        @method('delete')
+                        @csrf
+                            <input type="submit" value="Hapus">
+                        </form>
+                    </td>
             </tr>
             @endforeach
         </table>
-    </div>
 </body>
 </html>
